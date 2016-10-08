@@ -26,7 +26,7 @@ Usaremos `R` para contestar algunas de estas preguntas, veremos que funciones po
 
 -------------
 
-Lo primero que vamos hacer es conocer cuáles son las características del objeto que hemos generado.  Lo primero cargar los datos.
+Lo primero que vamos hacer es conocer cuáles son las características del objeto que hemos generado.  Lo primero cargar los datos. Vuelva a descargar los datos desde [aquí](https://github.com/Ciespinosa/ConociendoDatos/AMEBIASIS_LOJA)
 
 ```{r}
 ameLoja<-read.table("AMEBIASIS_LOJA.csv", header=TRUE, sep=';')
@@ -100,6 +100,18 @@ table(ameLoja$Cantón)
 ```
 
 Ahora podemos ver todas las categorías de Cantón que son nueve cantones cada uno con su frecuencia.
+
+
+En nuestros datos tenemos una variable numérica edad años.  Vamos a verificar si esta variable esta bien.  Utilizaremos un gráfico para ver como se distribuye esta variable.
+
+
+```{r}
+plot(ameLoja$Edad.en.años, pch=19)
+```
+>¿Qué es lo que ven?  
+
+Hay un valor que se encuentra fuera de lo normal, supuestamente hay una persona con 600 años.  Esto es poco probable así que deberiamos corregir este dato antes de continuar.
+
 
 #Ejercicio
 
