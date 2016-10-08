@@ -118,7 +118,7 @@ Hay un valor que se encuentra fuera de lo normal, supuestamente hay una persona 
 
 -------------
 
-Descargue los datos de plantas que los puede encontrar [aquí](https://github.com/Ciespinosa/conociendoDatos/plant-data.txt) súbalos a la consola y descríbalos.
+Descargue los datos de plantas que los puede encontrar [aquí](https://github.com/Ciespinosa/ConociendoDatos/blob/master/plant-data.txt) súbalos a la consola y descríbalos.
 
 1. ¿Cuáles son las dimensiones de este objeto? (cuantas variables y cuantas observaciones)
 
