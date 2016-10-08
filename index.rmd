@@ -2,13 +2,16 @@
 title: "Conociendo los datos"
 author: "Carlos Iván Espinosa"
 date: "7 de octubre de 2016"
-output: 
-  html_document: 
+output:
+  html_document:
     highlight: haddock
     number_sections: yes
     toc: yes
+  pdf_document:
+    toc: yes
 ---
 
+Pueden descargar este documento en pdf haciendo clic [aquí](https://github.com/Ciespinosa/ConociendoDatos/blob/master/index.pdf)
 
 <p> <br> </p>
 

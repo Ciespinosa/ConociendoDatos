@@ -153,10 +153,11 @@ $(document).ready(function () {
 </ul>
 </div>
 
+<p>Pueden descargar este documento en pdf haciendo clic <a href="https://github.com/Ciespinosa/ConociendoDatos/blob/master/index.pdf">aquí</a></p>
 <p>
 <br>
 </p>
-<p>Una de las primeras cosas que se debe hacer cuando trabajamos con un conjunto de datos es conocer las características de estos datos. ¿Qué tipo de variables son? ¿Cómo estan almacenadas? ¿Cuál es la distribución y sus dimensiones? ¿Existen datos erróneos? ¿Hay datos que faltan?</p>
+<p>Una de las primeras cosas que se debe hacer cuando trabajamos con un conjunto de datos es conocer las características de estos datos. ¿Qué tipo de variables son? ¿Cómo están almacenadas? ¿Cuál es la distribución y sus dimensiones? ¿Existen datos erróneos? ¿Hay datos que faltan?</p>
 <p>Usaremos <code>R</code> para contestar algunas de estas preguntas, veremos que funciones podemos utilizar y como tenemos que usarlas. Al final de esta lección espero que hayan logrado comprender la naturaleza de los datos. Seguiremos usando los datos de amebiasis de Loja.</p>
 <p>
 <br>
@@ -164,17 +165,17 @@ $(document).ready(function () {
 <div id="caracteristicas-del-objeto" class="section level1">
 <h1><span class="header-section-number">1</span> Características del objeto</h1>
 <hr />
-<p>Lo primero que vamos hacer es conocer cuales son las características del objeto que hemos generado. LO primero cargar los datos.</p>
+<p>Lo primero que vamos hacer es conocer cuáles son las características del objeto que hemos generado. Lo primero cargar los datos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ameLoja&lt;-<span class="kw">read.table</span>(<span class="st">&quot;AMEBIASIS_LOJA.csv&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">';'</span>)</code></pre></div>
 <blockquote>
 <p>¿Tuvo algún error?</p>
 </blockquote>
-<p>No olvide que debe poner los datos en la carpeta del nuevo proyecto, vuelvalo a intentar. si prefiere no mover los datos a la carpeta de este proyecto no hay problema, copie la dirección completa donde tiene los datos (será algo como esto<code>C:/Users/UPTL/Documents/GitHub/cargarDatos/AMEBIASIS_LOJA.csv</code>) y reempláselo por el nombre del archivo. ¿Funcionó?, recuerde que necesitamos usar el <code>/</code> y no <code>\</code> que sale por defecto cuando hago copio desde la ventana de windows.</p>
+<p>No olvide que debe poner los datos en la carpeta del nuevo proyecto, vuélvalo a intentar. si prefiere no mover los datos a la carpeta de este proyecto no hay problema, copie la dirección completa donde tiene los datos (será algo como esto<code>C:/Users/UPTL/Documents/GitHub/cargarDatos/AMEBIASIS_LOJA.csv</code>) y reemplácelo por el nombre del archivo. ¿Funcionó?, recuerde que necesitamos usar el <code>/</code> y no <code>\</code> que sale por defecto cuando hago copio desde la ventana de windows.</p>
 <p>Una vez que tenemos los datos subidos vamos a ver algunas de las características, en la anterior lección ya vimos algunas funciones.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(ameLoja)</code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<p>Con la función <code>class</code> podemos saber que tipo de objeto tenemos. En este caso tenemos un data.frame. Los data.frame son matrices que tienen tanto variables cualitativas como cuantitativas, y es el objeto que por defecto se genera cuando utilizo una función como read.table o read_excel.</p>
-<p>Ahora que sabemos que estamos trabajando con un data.frame (o trama de datos en español) sabemos que tiene dos dimensiones; las filas y las columnas. Pero ¿cuántas filas y cuántas columnas tiene mo objeto? Podemos utilizar un par de funciones para saberlo.</p>
+<p>Con la función <code>class</code> podemos saber qué tipo de objeto tenemos. En este caso tenemos un data.frame. Los data.frame son matrices que tienen tanto variables cualitativas como cuantitativas, y es el objeto que por defecto se genera cuando utilizo una función como read.table o read_excel.</p>
+<p>Ahora que sabemos que estamos trabajando con un data.frame (o trama de datos en español) sabemos que tiene dos dimensiones; las filas y las columnas. Pero ¿cuántas filas y cuántas columnas tienen mi objeto? Podemos utilizar un par de funciones para saberlo.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(ameLoja)</code></pre></div>
 <pre><code>## [1] 3019    9</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ncol</span>(ameLoja)</code></pre></div>
@@ -187,7 +188,7 @@ $(document).ready(function () {
 <pre><code>## [1] &quot;Cantón&quot;           &quot;Distrito&quot;         &quot;Dis.Distribucion&quot;
 ## [4] &quot;Sexo&quot;             &quot;Edad.en.años&quot;     &quot;N.X&quot;             
 ## [7] &quot;N.Y&quot;              &quot;Consultas&quot;        &quot;Parroquia&quot;</code></pre>
-<p>Nuestra data.frame tiene unos nombres de variables bastante descriptivos, aunque hay alguno que no esta muy claro, como N.Y, efectivamente no quiere decir la distancia a Nueva York y N.X la distancia a Xalapa, estas dos variables corresponden a las coordenadas geográficas latitud x y longitud y. Ahora, necesitamos echar un vistazo a los datos reales. Sin embargo, nuestra base de datos contiene 3019 observaciones (filas), así que es poco práctico ver toda la tabla a la vez.</p>
+<p>Nuestra data.frame tiene unos nombres de variables bastante descriptivos, aunque hay alguno que no está muy claro, como N.Y, efectivamente no quiere decir la distancia a Nueva York y N.X la distancia a Xalapa, estas dos variables corresponden a las coordenadas geográficas latitud x y longitud y. Ahora, necesitamos echar un vistazo a los datos reales. Sin embargo, nuestra base de datos contiene 3019 observaciones (filas), así que es poco práctico ver toda la tabla a la vez.</p>
 <p>La función <code>head</code> permite hacer una vista previa de la parte superior del conjunto de datos y la función <code>tail</code> la parte inferior de estos datos. Adicionalmente, yo podría cambiar la cantidad de observaciones que me presentan estas funciones agregando un valor en estas funciones. Veamos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(ameLoja, <span class="dv">5</span>)</code></pre></div>
 <pre><code>##   Cantón Distrito Dis.Distribucion   Sexo Edad.en.años                 N.X
@@ -218,7 +219,7 @@ $(document).ready(function () {
 ## 3018 673.123.999.999.634 953.243.300.000.001         1 GONZANAMÁ
 ## 3019 673.123.999.999.634 953.243.300.000.001         1 GONZANAMÁ</code></pre>
 <p>Como vemos este código me mostró las cinco primeras y seis ultimas observaciones del objeto, usted puede probar otros valores.</p>
-<p>Ahora vamos a utilizar la función <code>str</code> para ver que tipo de variables tenemos en este objeto.</p>
+<p>Ahora vamos a utilizar la función <code>str</code> para ver qué tipo de variables tenemos en este objeto.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(ameLoja)</code></pre></div>
 <pre><code>## 'data.frame':    3019 obs. of  9 variables:
 ##  $ Cantón          : Factor w/ 16 levels &quot;CALVAS&quot;,&quot;CATAMAYO&quot;,..: 7 7 7 7 7 7 7 7 7 7 ...
@@ -230,12 +231,12 @@ $(document).ready(function () {
 ##  $ N.Y             : Factor w/ 94 levels &quot;948.835.300.000.001&quot;,..: 73 73 73 73 62 73 73 73 62 73 ...
 ##  $ Consultas       : int  1 2 1 1 1 1 2 1 1 1 ...
 ##  $ Parroquia       : Factor w/ 62 levels &quot;12 DE DICIEMBRE (CAB.EN ACHIOTES)&quot;,..: 15 15 15 15 56 15 15 15 56 15 ...</code></pre>
-<p>Revise los datos, ¿ve algo raro?. Fijese bien en las variables N.X y N.Y, lo vé, tenemos un problema los datos no son números, los esta tomando como factores. Mire atentamente los datos, puede verlo mejor en el resultado anterior de head o tail. Claro la separaciones de miles ha sido utilizado un punto. Bueno por ahora, sabemos que hay un problema que hay que resolver, pero lo dejaremos para más adelante. La función str además nos da información parecida a la de dim ya que nos da los datos de cuantas variables (columnas) y cuantas observaciones (filas).</p>
+<p>Revise los datos, ¿ve algo raro? Fíjese bien en las variables N.X y N.Y, lo ve, tenemos un problema los datos no son números, los está tomando como factores. Mire atentamente los datos, puede verlo mejor en el resultado anterior de head o tail. Claro la separaciones de miles ha sido utilizado un punto. Bueno por ahora, sabemos que hay un problema que hay que resolver, pero lo dejaremos para más adelante. La función str además nos da información parecida a la de dim ya que nos da los datos de cuantas variables (columnas) y cuantas observaciones (filas).</p>
 </div>
 <div id="caracteristicas-de-las-variables" class="section level1">
 <h1><span class="header-section-number">2</span> Características de las variables</h1>
 <hr />
-<p>Ahora que ya sabemos como estan nuestra tabla de datos podemos fijarnos en nuestras variables. Una función que se utilizará mucho en R es la función <code>summary</code>, esta función nos da información de resumen. Cuando la función sumary es utilizada en un objeto, nos mostrará algunos datos descriptivos de las variables.</p>
+<p>Ahora que ya sabemos cómo está nuestra tabla de datos podemos fijarnos en nuestras variables. Una función que se utilizará mucho en R es la función <code>summary</code>, esta función nos da información de resumen. Cuando la función sumary es utilizada en un objeto, nos mostrará algunos datos descriptivos de las variables.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(ameLoja)</code></pre></div>
 <pre><code>##        Cantón        Distrito                        Dis.Distribucion
 ##  LOJA     :1511   11D01  :1511   LOJA                        :1511   
@@ -261,7 +262,7 @@ $(document).ready(function () {
 ##  9552096            : 178   3rd Qu.: 2.000   CATAMAYO (LA TOMA): 133  
 ##  9521662            : 133   Max.   :41.000   MACARÁ            : 105  
 ##  (Other)            :1652                    (Other)           : 789</code></pre>
-<p>como vemos la salida diferente para cada variable es dependiete de su clase. Para los datos numéricos como edad.en.años, summary muestra el mínimo, primer cuartil, la mediana, la media, el tercer cuartil, y el máximo. Estos valores nos ayudan a entender cómo se distribuyen los datos. Para las variables categóricas (llamadas variables ‘factor’ en R), summary muestra el número de veces que cada valor (o ‘nivel’) aparece en los datos. Por ejemplo, la variable sexo aparece hombres 1179 y mujeres 1840. Se puede ver que R limita los resultados de las variables categóricas en 6 niveles incluyendo una nueva categoría denominada ‘Other’, esto lo hace con el fin de estandarizar la salida. Dado que es una variable categórica / Factor, podemos ver cuántas veces ocurre cada valor realmente en los datos con table(ameLoja$Cantón).</p>
+<p>como vemos la salida diferente para cada variable es dependiente de su clase. Para los datos numéricos como edad.en.años, summary muestra el mínimo, primer cuartil, la mediana, la media, el tercer cuartil, y el máximo. Estos valores nos ayudan a entender cómo se distribuyen los datos. Para las variables categóricas (llamadas variables ‘factor’ en R), summary muestra el número de veces que cada valor (o ‘nivel’) aparece en los datos. Por ejemplo, la variable sexo aparece hombres 1179 y mujeres 1840. Se puede ver que R limita los resultados de las variables categóricas en 6 niveles incluyendo una nueva categoría denominada ‘Other’, esto lo hace con el fin de estandarizar la salida. Dado que es una variable categórica / Factor, podemos ver cuántas veces ocurre cada valor realmente en los datos con table(ameLoja$Cantón).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(ameLoja$Cantón)</code></pre></div>
 <pre><code>## 
 ##       CALVAS     CATAMAYO       CELICA CHAGUARPAMBA    ESPÍNDOLA 
@@ -272,12 +273,12 @@ $(document).ready(function () {
 ##           21           59            5          208            7 
 ##    ZAPOTILLO 
 ##           21</code></pre>
-<p>Ahora podemos ver todas las categorias de Cantón que son nueve cantones cada uno con su frecuencia.</p>
+<p>Ahora podemos ver todas las categorías de Cantón que son nueve cantones cada uno con su frecuencia.</p>
 </div>
 <div id="ejercicio" class="section level1">
 <h1><span class="header-section-number">3</span> Ejercicio</h1>
 <hr />
-<p>Descargue los datos de plantas que los puede encontrar <a href=".....">aquí</a> subalos a la consola y descríbalos.</p>
+<p>Descargue los datos de plantas que los puede encontrar <a href="https://github.com/Ciespinosa/conociendoDatos/plant-data.txt">aquí</a> súbalos a la consola y descríbalos.</p>
 <ol style="list-style-type: decimal">
 <li><p>¿Cuáles son las dimensiones de este objeto? (cuantas variables y cuantas observaciones)</p></li>
 <li><p>Utilice head y tail para ver las características internas de los datos ¿qué ven?</p></li>
