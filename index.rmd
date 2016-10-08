@@ -128,4 +128,4 @@ Descargue los datos de plantas que los puede encontrar [aquí](https://github.co
 
 4. Describa al cuatro variables, dos numéricas y dos categóricas. Realice un gráfico descriptivo de cada una de estas variables.
 
-5. Revisar si alguna de las variables  númericas tienen valores erróneos.
+5. Revisar si alguna de las variables  númericas tienen valores erróneos, ubicarlos y responder ¿por qué considera que son erróneos?.
