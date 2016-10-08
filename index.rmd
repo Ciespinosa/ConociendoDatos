@@ -108,12 +108,13 @@ En nuestros datos tenemos una variable numérica edad años.  Vamos a verificar 
 ```{r}
 plot(ameLoja$Edad.en.años, pch=19)
 ```
+
 >¿Qué es lo que ven?  
 
 Hay un valor que se encuentra fuera de lo normal, supuestamente hay una persona con 600 años.  Esto es poco probable así que deberiamos corregir este dato antes de continuar.
 
 
-#Ejercicio
+#Ejercicio 2
 
 -------------
 
@@ -126,3 +127,5 @@ Descargue los datos de plantas que los puede encontrar [aquí](https://github.co
 3. Describa cuantas variables categóricas y numéricas tiene este set de datos.
 
 4. Describa al cuatro variables, dos numéricas y dos categóricas. Realice un gráfico descriptivo de cada una de estas variables.
+
+5. Revisar si alguna de las variables  númericas tienen valores erróneos.
