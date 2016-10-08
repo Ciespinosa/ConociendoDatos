@@ -26,7 +26,7 @@ Usaremos `R` para contestar algunas de estas preguntas, veremos que funciones po
 
 -------------
 
-Lo primero que vamos hacer es conocer cuáles son las características del objeto que hemos generado.  Lo primero cargar los datos. Vuelva a descargar los datos desde [aquí](https://github.com/Ciespinosa/ConociendoDatos/blob/master/AMEBIASIS_LOJA)
+Lo primero que vamos hacer es conocer cuáles son las características del objeto que hemos generado.  Lo primero cargar los datos. Vuelva a descargar los datos desde [aquí](https://github.com/Ciespinosa/ConociendoDatos/blob/master/AMEBIASIS_LOJA.csv)
 
 ```{r}
 ameLoja<-read.table("AMEBIASIS_LOJA.csv", header=TRUE, sep=';')
