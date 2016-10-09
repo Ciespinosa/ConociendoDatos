@@ -11,6 +11,8 @@ output:
     toc: yes
 ---
 
+<p> <br> </p>
+
 Pueden descargar este documento en pdf haciendo clic [aquí](https://github.com/Ciespinosa/ConociendoDatos/blob/master/index.pdf)
 
 <p> <br> </p>
@@ -91,18 +93,20 @@ Ahora que ya sabemos cómo está nuestra tabla de datos podemos fijarnos en nues
 summary(ameLoja)
 ```
 
-como vemos la salida diferente para cada variable es dependiente de su clase. Para los datos numéricos como edad.en.años, summary muestra el mínimo, primer cuartil, la mediana, la media, el tercer cuartil, y el máximo. Estos valores nos ayudan a entender cómo se distribuyen los datos.
-Para las variables categóricas (llamadas variables ‘factor’ en R), summary muestra el número de veces que cada valor (o ‘nivel’) aparece en los datos. Por ejemplo, la variable sexo aparece hombres 1179 y mujeres 1840. 
+Como vemos la salida es diferente para cada variable, esta salida es dependiente de su clase. Para los datos numéricos como _edad.en.años_ summary muestra los siguientes datos; el mínimo, primer cuartil, la mediana, la media, el tercer cuartil, y el máximo. Los valores obtnidos nos ayudan a entender cómo se distribuyen los datos.
+
+Para las variables categóricas (llamadas variables ‘factor’ en R), summary muestra el número de veces que cada valor (o ‘nivel’) aparece en los datos. Por ejemplo, la variable sexo aparece hombres 1179 y mujeres 1840.
+
 Se puede ver que R limita los resultados de las variables categóricas en 6 niveles incluyendo una nueva categoría denominada ‘Other’, esto lo hace con el fin de estandarizar la salida. Dado que es una variable categórica / Factor, podemos ver cuántas veces ocurre cada valor realmente en los datos con table(ameLoja$Cantón).
 
 ```{r}
 table(ameLoja$Cantón)
 ```
 
-Ahora podemos ver todas las categorías de Cantón que son nueve cantones cada uno con su frecuencia.
+Ahora podemos ver todas las categorías de la variable Cantón, cada uno con su frecuencia.
 
 
-En nuestros datos tenemos una variable numérica edad años.  Vamos a verificar si esta variable esta bien.  Utilizaremos un gráfico para ver como se distribuye esta variable.
+En los datos de amebiasis tenemos una variable numérica edad años, vamos a verificar si los datos de esta variable son correctos.  Utilizaremos un gráfico para ver como se distribuye esta variable.
 
 
 ```{r}
